@@ -30,7 +30,12 @@ Real-time heart rate streaming from a **Polar H10** chest strap using **Bluetoot
 
 ## Run
 
-### 1) Start the Rust app
+### 1) Build the Rust app
+```bash
+cargo build
+```
+
+### 2) Start the Rust app
 
 ```bash
 cargo run
@@ -38,7 +43,7 @@ cargo run
 
 By default it scans for a device with “polar” in its advertised name, connects, and begins streaming.
 
-### 2) Open the dashboard
+### 3) Open the dashboard
 
 Open `hr_interface.html` in your browser (double-click it, or “Open File…”).
 
@@ -53,12 +58,8 @@ If the app is running, the UI should switch to **Connected & Syncing** and show 
 If scanning is unreliable (multiple devices, hidden names, etc.), you can target a device address:
 
 ```bash
-cargo run -- --mac AA:BB:CC:DD:EE:FF
+cargo run -- --mac AA:BB:CC:DD:EE:FF (your MAC address here)
 ```
-
-Notes:
-- Matching is case-insensitive and ignores colons.
-- The app currently binds the WebSocket server to `127.0.0.1:9001` (local machine only).
 
 ## Troubleshooting
 
